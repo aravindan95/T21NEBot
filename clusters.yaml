@@ -1,0 +1,7 @@
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: concretely43-hasura
+  data: null
+  kubeContext: concretely43
+  name: concretely43
