@@ -1,0 +1,9 @@
+- args:
+    sql: ALTER TABLE "Order" ALTER COLUMN "CUSTOMERID" TYPE integer;
+  type: run_sql
+- args:
+    sql: ALTER TABLE "Order" ALTER COLUMN "CUSTOMERID" DROP DEFAULT;
+  type: run_sql
+- args:
+    sql: ALTER TABLE "Order" ALTER COLUMN "CUSTOMERID" SET NOT NULL;
+  type: run_sql
