@@ -21,7 +21,7 @@ Steps to set up development environment
 Clone Repository and Running on device/emulator 
     
     -- git clone https://github.com/aravindan95/T21NEBot.git
-    -- cd ReactNative\HasuraChatBot
+    -- cd ReactNativeFrontEnd\HasuraChatBot
     -- npm install (to install project dependencies)
     -- react-native run-android (This will run the app on your connected emulator or development device)
 
