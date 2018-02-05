@@ -62,11 +62,17 @@ export default class ChatClient extends React.Component {
   handleMessage(name, message, type) {
     const messages = this.state.messages;
     messages.push({action: 'message', name: name, message: message, type: type});
+    
+    if (messages.length > 10) {
+      messages.splice(0, messages.length-10);
+    }
+
     this.setState({
       messages: messages
     });
 
-    console.log(messages);
+    
+    
   }
 
   
