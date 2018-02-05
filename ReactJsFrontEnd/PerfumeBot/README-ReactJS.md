@@ -9,7 +9,7 @@ This is a simple Online Perfume Store Chat Bot created as part of Hasura Product
 
 ## Prerequisites
 
-Following things must be installed on user's system:
+Following things must be installed on your system:
 1. [Node](https://github.com/nodejs/node)
 2. [Create React App](https://github.com/facebook/create-react-app)
 
