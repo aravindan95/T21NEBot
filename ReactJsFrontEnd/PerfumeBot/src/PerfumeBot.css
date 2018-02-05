@@ -1,0 +1,22 @@
+.bot-frame {
+    border: 1px solid #aeafaf;
+    border-radius: 5px;
+    box-shadow: 0 100px 170px rgba(0, 0, 0, 0.1);
+    width: 33wh;
+    height: 66vh;
+    min-height: 400px;
+    min-width: 350px;
+  }
+  
+  .left-side {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media screen and (max-width: 600px) {
+    .left-side {
+      left: 50%;
+    }
+}

@@ -1,0 +1,22 @@
+body {
+  background-image: url('https://images.unsplash.com/photo-1514348871858-1d3c20902571?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=21c49bb93c784ef9667bd5c61f829b6f&auto=format&fit=crop&w=1567&q=80'); 
+}
+
+.App {
+  text-align: center;
+}
+
+/* .App-header {
+  background-color: #222;
+  height: 40px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+} */
