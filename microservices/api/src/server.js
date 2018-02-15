@@ -5,11 +5,14 @@ var server = require('http').Server(app);
 var fetchAction=require('node-fetch');
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
-var resp,speech;
+var speech,body,id=0,speech1;
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!');
 });
 app.post('/',jsonParser,function(req,res){
+	var query=req.body.result.resolvedQuery;
+	if((query=="strong")||(query=="Strong")||(query=="mild")||(query=="Mild"))
+	{
 	var gender=req.body.result.contexts[1].parameters.Gender;
 	var brand=req.body.result.contexts[1].parameters.Brand;
 	var type=req.body.result.contexts[1].parameters.Type;
@@ -29,15 +32,14 @@ app.post('/',jsonParser,function(req,res){
 		brandid=5;
 	else
 		brandid=brand;
-var requestOptions = {
+	var requestOptions = {
     "method": "POST",
     "headers": {
         "Content-Type": "application/json",
         "Authorization": "Bearer 678b77d65186a58592ee49f0980db0ccf9d2d5a0ee28abf6"
     }
 };
-
-var body = {
+    body = {
     "type": "select",
     "args": {
         "table": "Product",
@@ -62,11 +64,48 @@ fetchAction(url, requestOptions)
 	return response.json();
 })
 .then(function(result) {
-	speech=JSON.stringify(result);
-	console.log(speech);
+    speech=JSON.stringify(result);
+    speech+=" Can I take the order?";
+})
+.catch(function(error) {
+	console.log('Request Failed:' + error);
+});}
+else{
+	var url = "https://data.agleam79.hasura-app.io/v1/query";
+	++id;
+	speech="";
+	var requestOptions = {
+    "method": "POST",
+    "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer 678b77d65186a58592ee49f0980db0ccf9d2d5a0ee28abf6"
+    }
+};
+var body = {
+    "type": "insert",
+    "args": {
+        "table": "Customer",
+        "objects": [
+            {
+                "ID": id,
+                "Details": query
+            }
+        ]
+    }
+};
+requestOptions.body = JSON.stringify(body);
+fetchAction(url, requestOptions)
+.then(function(response) {
+	return response.json();
+})
+.then(function(result) {
+    speech1=JSON.stringify(result);
+    console.log(speech1);
 })
 .catch(function(error) {
 	console.log('Request Failed:' + error);
 });
-res.json({"speech": speech,"displayText": speech});
+}
+res.json({"speech":speech, "displayText":speech});
 });
+
