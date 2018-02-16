@@ -6,6 +6,25 @@ var fetchAction=require('node-fetch');
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
 var speech,body,id=0,speech1;
+
+/* From alekh---login  +	signup	+	logout	+	reset password*/
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+var routes= require('./signup');
+app.use('/signup',routes);
+var routes= require('./login');
+app.use('/login',routes);
+
+var routes= require('./reset');
+app.use('/reset',routes);
+
+var routes= require('./logout');
+app.use('/logout',routes);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!');
 });
