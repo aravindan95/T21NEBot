@@ -10,9 +10,7 @@
     "native-base": "^2.3.7",
     "react": "16.2.0",
     "react-native": "0.52.2",
-    "react-native-autogrow-input": "^0.2.1",
     "react-native-dialogflow": "^2.0.0",
-    "react-native-keyboard-spacer": "^0.4.1",
     "react-navigation": "^1.0.0-beta.21"
   },
   "devDependencies": {
