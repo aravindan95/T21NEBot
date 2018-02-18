@@ -10,7 +10,7 @@ router.use(bodyParser.urlencoded({
 }));
 
 
-router.get('/',function(request,response){
+router.post('/',function(request,response){
 	var username = request.body.username;
 	var password = request.body.password;
 

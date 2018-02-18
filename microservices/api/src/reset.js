@@ -11,7 +11,7 @@ router.use(bodyParser.urlencoded({
 }));
 
 router.use(cookieParser());
-router.get('/',function(request,response){
+router.post('/',function(request,response){
 	
 var old_password = request.body.old_password;
 var new_password = request.body.new_password;
