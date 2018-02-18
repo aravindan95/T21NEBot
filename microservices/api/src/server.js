@@ -5,9 +5,8 @@ var server = require('http').Server(app);
 var fetchAction=require('node-fetch');
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
-var speech,body,id=0,speech1;
-
-/* From alekh---login  +	signup	+	logout	+	reset password*/
+var speech,speech1,sp;
+/* From alekh---login  +    signup  +   logout  +   reset password*/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
@@ -24,7 +23,6 @@ app.use('/reset',routes);
 var routes= require('./logout');
 app.use('/logout',routes);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!');
 });
@@ -58,11 +56,12 @@ app.post('/',jsonParser,function(req,res){
         "Authorization": "Bearer 678b77d65186a58592ee49f0980db0ccf9d2d5a0ee28abf6"
     }
 };
-    body = {
+    var body = {
     "type": "select",
     "args": {
         "table": "Product",
         "columns": [
+            "ID",
             "NAME",
             "PRICE"
         ],
@@ -83,15 +82,15 @@ fetchAction(url, requestOptions)
 	return response.json();
 })
 .then(function(result) {
-    speech=JSON.stringify(result);
+	sp=JSON.stringify(result);
+    speech=JSON.stringify(result); 
     speech+=" Can I take the order?";
 })
 .catch(function(error) {
 	console.log('Request Failed:' + error);
-});}
+});} 
 else{
 	var url = "https://data.agleam79.hasura-app.io/v1/query";
-	++id;
 	speech="";
 	var requestOptions = {
     "method": "POST",
@@ -100,14 +99,14 @@ else{
         "Authorization": "Bearer 678b77d65186a58592ee49f0980db0ccf9d2d5a0ee28abf6"
     }
 };
-var body = {
+   var body = {
     "type": "insert",
     "args": {
-        "table": "Customer",
+        "table": "Order",
         "objects": [
             {
-                "ID": id,
-                "Details": query
+                "Product": sp,
+                "Customer": query
             }
         ]
     }
