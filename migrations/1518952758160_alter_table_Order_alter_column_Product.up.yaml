@@ -1,0 +1,9 @@
+- args:
+    sql: ALTER TABLE "Order" ALTER COLUMN "Product" TYPE text;
+  type: run_sql
+- args:
+    sql: ALTER TABLE "Order" ALTER COLUMN "Product" DROP DEFAULT;
+  type: run_sql
+- args:
+    sql: ALTER TABLE "Order" ALTER COLUMN "Product" SET NOT NULL;
+  type: run_sql

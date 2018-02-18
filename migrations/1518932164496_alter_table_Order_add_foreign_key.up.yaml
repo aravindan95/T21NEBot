@@ -1,0 +1,3 @@
+- args:
+    sql: ALTER TABLE "Order" DROP CONSTRAINT "Order_PRODUCTID_fkey"
+  type: run_sql

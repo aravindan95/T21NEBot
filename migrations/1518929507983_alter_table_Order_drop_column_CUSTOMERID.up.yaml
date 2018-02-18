@@ -1,0 +1,3 @@
+- args:
+    sql: ALTER TABLE "Order" DROP COLUMN "CUSTOMERID"
+  type: run_sql

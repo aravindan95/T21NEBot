@@ -1,0 +1,3 @@
+- args:
+    sql: ALTER TABLE "Customer" ADD COLUMN "Details" text NOT NULL
+  type: run_sql
